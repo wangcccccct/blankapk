@@ -1,0 +1,6 @@
+build/
+out/
+.gradle/
+app/build/
+local.properties
+template-build/

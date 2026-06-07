@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Blank APK Generator</string>
+    <string name="title_text">生成极小可安装 APK</string>
+    <string name="desc_text">输入包名和显示名称，应用会用内置模板生成一个新的极小 APK，并使用本应用首次生成的独立签名密钥进行签名，不复用任何现有签名。</string>
+    <string name="package_hint">包名，例如 com.example.demo</string>
+    <string name="name_hint">应用名称，例如 Demo Blank</string>
+    <string name="generate_button">生成 APK</string>
+    <string name="rotate_key_button">重建签名密钥</string>
+    <string name="share_button">分享上次生成的 APK</string>
+</resources>
