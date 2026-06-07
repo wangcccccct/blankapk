@@ -2,6 +2,12 @@ plugins {
     id 'com.android.application'
 }
 
+def releaseSigningPropertiesFile = file("${System.properties['user.home']}/.android/android-release.properties")
+def releaseSigningProperties = new Properties()
+if (releaseSigningPropertiesFile.exists()) {
+    releaseSigningPropertiesFile.withInputStream { releaseSigningProperties.load(it) }
+}
+
 android {
     namespace 'com.example.blankapkgenerator'
     compileSdk 35
@@ -14,8 +20,22 @@ android {
         versionName "1.1"
     }
 
+    signingConfigs {
+        if (releaseSigningPropertiesFile.exists()) {
+            release {
+                storeFile file(releaseSigningProperties['storeFile'])
+                storePassword releaseSigningProperties['storePassword']
+                keyAlias releaseSigningProperties['keyAlias']
+                keyPassword releaseSigningProperties['keyPassword']
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (releaseSigningPropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
