@@ -69,3 +69,16 @@
 - Android 10+：优先保存到系统下载目录 `Download/BlankApkGenerator/`
 - 更低版本：回退到应用自己的下载目录
 - 分享走 `content://` URI（`MediaStore` 或 `FileProvider`），避免直接暴露裸文件路径
+
+## 下载 / Release
+
+当前 GitHub Release 提供的是生成器应用的 **debug 版 APK**：
+
+- 下载入口：<https://github.com/wangcccccct/blankapk/releases>
+- APK 文件名：`blankapk-generator-v1.1-debug.apk`
+- 对应应用版本：`versionName 1.1` / `versionCode 2`
+
+说明：
+
+- 这个 APK 是 Android 生成器应用，不是生成出来的空白 APK 模板本身。
+- debug 版适合测试和自用验证；如需正式分发，应改用 release 签名重新打包。
